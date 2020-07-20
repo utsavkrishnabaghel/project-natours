@@ -1,0 +1,351 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+@import "components/bg-video";
+@import "components/button";
+@import "components/card";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/popup";
+@import "components/story";
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+@import "pages/home";
+
+/*
+
+
+
+
+
+
+imported all codes in their respective folders
+
+
+
+
+
+
+
+*/
+
+//********************************************************************
+
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+/*
+imported in variables above
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-grey-light: #777;
+$color-white: #fff;
+$color-black: #000;
+
+
+*/
+
+
+/*
+imported in base above 
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: $color-grey-light;
+    padding: 30px;
+}
+
+*/
+
+
+/*
+header imported above
+
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.808), rgba($color-primary-dark, 0.712)), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.logo {
+    height: 35px;
+}
+
+*/
+
+
+/*
+typography imported above
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 60px;
+    &-main {
+        display: block;
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 35px;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        /*
+        animation-delay: 1s; it will delay for 1 sec and then animation starts
+        animation-iteration-count: 3; it will happen 3 times 
+        
+    }
+    &-sub {
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 17.5px;
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+}
+
+*/
+
+
+/* nesting above in sass
+ .heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*
+    animation-delay: 1s; it will delay for 1 sec and then animation starts
+    animation-iteration-count: 3; it will happen 3 times 
+    
+} 
+*/
+
+
+/*
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.5px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+*/
+
+
+/*  
+animations imported above 
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+*/
+
+
+/*
+bottuons imported above 
+
+
+
+
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 200px;
+        font-weight: 400;
+        transition: all 0.2s;
+        position: relative;
+    }
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba($color-black, 0.3);
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba($color-black, 0.3);
+    }
+    &-white {
+        background-color: $color-white;
+        color: $color-grey-light;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    /* psedu elements 
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+    &-animated {
+        animation: moveInButton 0.5s ease-out 0.75s;
+        animation-fill-mode: backwards;
+    }
+}
+
+*/
+
+
+/*  nesting of buttons
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 200px;
+    font-weight: 400;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba($color-black, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba($color-black, 0.3);
+}
+
+.btn-white {
+    background-color: $color-white;
+    color: $color-grey-light;
+}
+
+
+/* psedu elements
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.btn-white::after {
+    background-color: $color-white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInButton 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+}
+
+*/
